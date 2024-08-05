@@ -9,6 +9,9 @@ var io = require('socket.io').listen(server);
 //const http = require('http').createServer(server);
 //io = require('socket.io')(http);
 
+app.get("/", (req, res) => {
+	res.json({ message: "Hello from backend"});
+});
 
 let players = [];
 let countRooms = 0;

@@ -23,7 +23,7 @@ app.use(cors({
 //io = require('socket.io')(http);
 
 app.get("/", (req, res) => {
-	res.json({ message: "Hello from backend"});
+	res.json({ message: "Hello from backend 2"});
 });
 
 let players = [];

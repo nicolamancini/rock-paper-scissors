@@ -1,9 +1,22 @@
 const PORT = process.env.PORT || 5000
 
-var express = require('express');
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io').listen(server);
+const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+const cors = require('cors');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server, {
+    cors: {
+        origin: "https://gameland.altervista.org", // Specifica il dominio del tuo client
+        methods: ["GET", "POST"]
+    }
+});
+
+app.use(cors({
+    origin: "https://gameland.altervista.org" // Specifica il dominio del tuo client
+}));
 
 //const server = require('express')();
 //const http = require('http').createServer(server);

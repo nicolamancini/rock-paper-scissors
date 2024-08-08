@@ -11,15 +11,15 @@ const io = socketIo(server, {
     cors: {
         origin: "https://gameland.altervista.org", // Specifica il dominio del tuo client
         methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
+        allowedHeaders: ["Content-Type", "Authorization"],
         credentials: true
     }
 });
 
 app.use(cors({
     origin: "https://gameland.altervista.org",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
 
@@ -28,8 +28,12 @@ app.use(cors({
 //io = require('socket.io')(http);
 
 app.get("/", (req, res) => {
-	res.json({ message: "Hello from backend 3"});
+	res.json({ message: "Hello from backend 4"});
 });
+
+
+// Gestisci le richieste OPTIONS
+app.options('*', cors());
 
 let players = [];
 let countRooms = 0;

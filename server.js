@@ -28,7 +28,7 @@ app.use(cors({
 //io = require('socket.io')(http);
 
 app.get("/", (req, res) => {
-	res.json({ message: "Hello from backend 4"});
+	res.json({ message: "Hello from backend 6"});
 });
 
 

@@ -18,10 +18,7 @@ const io = socketIo(server, {
 });
 
 app.use(cors({
-    origin: "https://gameland.altervista.org",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    origin: "*"
 }));
 
 //const server = require('express')();

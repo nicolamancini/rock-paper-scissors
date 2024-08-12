@@ -9,11 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "https://gameland.altervista.org", // Specifica il dominio del tuo client
-        methods: ["GET", "POST"],
-		transports: ['websocket', 'polling'],
-        allowedHeaders: ["Content-Type", "Authorization"],
-        credentials: true
+        origin: "*" // Specifica il dominio del tuo client
     }
 });
 

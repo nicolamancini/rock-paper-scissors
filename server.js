@@ -19,7 +19,7 @@ const io = socketIo(server, {
 
 app.use(cors({
     origin: "https://gameland.altervista.org",
-    methods: ["GET", "POST", "OPTIONS"],
+    methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
@@ -29,7 +29,7 @@ app.use(cors({
 //io = require('socket.io')(http);
 
 app.get("/", (req, res) => {
-	res.json({ message: "Hello from backend 7"});
+	res.json({ message: "Hello from backend 8"});
 });
 
 

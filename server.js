@@ -1,33 +1,14 @@
 const PORT = process.env.PORT || 5000
 
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
-const cors = require('cors');
-
-const app = express();
-const server = http.createServer(app);
-const io = socketIo(server, {
-    cors: {
-        origin: "*" // Specifica il dominio del tuo client
-    }
-});
-
-app.use(cors({
-    origin: "*"
-}));
+var express = require('express');
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io').listen(server);
 
 //const server = require('express')();
 //const http = require('http').createServer(server);
 //io = require('socket.io')(http);
 
-app.get("/", (req, res) => {
-	res.json({ message: "Hello from backend 9"});
-});
-
-
-// Gestisci le richieste OPTIONS
-app.options('*', cors());
 
 let players = [];
 let countRooms = 0;
